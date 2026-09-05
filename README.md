@@ -20,4 +20,4 @@ Comisión 3, grupo 12.
 ## Estado
 
 - TP0: Completo
-- TP1: en curso
+- TP1: Completo
