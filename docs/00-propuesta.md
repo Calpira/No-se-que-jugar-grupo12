@@ -69,3 +69,7 @@ Rating: ⭐4.6
 ## Diagrama inicial de clases
 
 ![Diagrama inicial](/assets/Diagrama_clases1.png)
+
+
+---
+> La información de los juegos fue sacada de IGDB y Metacritic
