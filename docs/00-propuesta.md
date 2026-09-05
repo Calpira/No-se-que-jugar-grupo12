@@ -18,7 +18,7 @@ Un trabajador de 32 años que termina su jornada y quiere jugar algo nuevo, pero
 2. Recomendación aleatoria / "Sorprendeme"
 3. Juegos relacionados ("si te gustó este, probá este otro")
 4. Sistema de valoración/ranking
-5. Mostrar informacion
+5. Listar todos los juegos
 
 ## Ejemplo de interacción
 
@@ -28,7 +28,8 @@ Un trabajador de 32 años que termina su jornada y quiere jugar algo nuevo, pero
 1)Realizar una Búsqueda
 2)Quiénes somos
 3)Cómo evaluamos los puntajes?
-4)Salir del Programa
+4)Listar todos los juegos
+5)Salir del Programa
 
 >1
 
