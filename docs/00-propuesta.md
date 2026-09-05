@@ -1,6 +1,11 @@
-<center><h1>Propuesta del proyecto</h1></center>
+<div align="center">
+  
+# Propuesta del proyecto
 
-<center><h2>No se que jugar</h2></center>
+## No se que jugar
+
+</div>
+
 
 ## Dominio elegido
 ### videojuegos
