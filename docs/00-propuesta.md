@@ -27,6 +27,8 @@ Un trabajador de 32 años que termina su jornada y quiere jugar algo nuevo, pero
 
 ## Ejemplo de interacción
 
+>Ejemplo ilustrativo, no coincide aún con la entrega presentada
+
 ```
 === NO SÉ QUÉ JUGAR ===
 
