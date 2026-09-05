@@ -1,4 +1,12 @@
 [
-{"titulo": "ejemplo_titulo", "tags": ["ejemplo_tag1", "ejemplo_tag2"], "rating": "ejemplo_rating"},
-{"titulo": "ejemplo_titulo", "tags": ["ejemplo_tag1", "ejemplo_tag2"], "rating": "ejemplo_rating"}
+  {"titulo": "The Legend of Zelda: Tears of the Kingdom", "tags": ["Aventura", "Mundo abierto"], "rating": 4.7},
+  {"titulo": "Elden Ring", "tags": ["Acción", "RPG", "Mundo abierto"], "rating": 4.9},
+  {"titulo": "Hollow Knight", "tags": ["Acción", "Metroidvania"], "rating": 4.6},
+  {"titulo": "Street Fighter 6", "tags": ["Acción", "Lucha"], "rating": 4.4},
+  {"titulo": "Mortal Kombat 1", "tags": ["Acción", "Lucha"], "rating": 4.0},
+  {"titulo": "Tekken 8", "tags": ["Acción", "Lucha"], "rating": 4.4},
+  {"titulo": "Celeste", "tags": ["Plataformas", "Metroidvania"], "rating": 4.4},
+  {"titulo": "Portal 2", "tags": ["Puzzle", "Aventura"], "rating": 4.6},
+  {"titulo": "Stardew Valley", "tags": ["Simulación", "RPG"], "rating": 4.6},
+  {"titulo": "Minecraft", "tags": ["Sandbox", "Aventura"], "rating": 4.1}
 ]
