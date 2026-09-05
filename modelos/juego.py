@@ -17,10 +17,6 @@ class Juego:
     def rating(self):
         return self._rating
 
-    @property
-    def jugado(self):
-        return self._jugado
-
     
     def __repr__(self):
         return f"{self._titulo} ⭐{self._rating} ({', '.join(self._tags)})"
