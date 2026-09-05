@@ -4,9 +4,9 @@ Sistema de recomendacion de videojuegos
 
 ## Integrantes
 
-- Luciano Rezoagli
+- Luciano "Reddaz" Rezoagli
 - Ezequiel Armoa
-- Carolina Lopez
+- Carolina "Calpira" Lopez
 
 ## Cómo ejecutar
 
