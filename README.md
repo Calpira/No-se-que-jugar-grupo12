@@ -20,6 +20,6 @@ Comisión 3, grupo 12.
 ## Estado
 
 - TP0: Completo
-- TP1: Completo
+- TP1: [Completo](./docs/00-propuesta.md)
 - TP2: x
-- TP3: completo
+- TP3: [Completo](./docs/07-analisis-tp3.md)
