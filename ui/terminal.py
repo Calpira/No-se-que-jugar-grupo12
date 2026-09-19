@@ -136,7 +136,7 @@ def main():
             input("(Presioná Enter para volver)")
             menu.estado = 0
 
-print("Gracias por usar nuestro programa.")
+    print("Gracias por usar nuestro programa.")
 
 if __name__ == "__main__":
     main()

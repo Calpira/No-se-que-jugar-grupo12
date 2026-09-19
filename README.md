@@ -15,7 +15,7 @@ Comisión 3, grupo 12.
 ## Cómo ejecutar
 
 > 1. Clonar el repositorio
-> 2. Ejecutar: python -m ui.terminal
+> 2. Ejecutar: python main.py
 
 ## Estado
 
