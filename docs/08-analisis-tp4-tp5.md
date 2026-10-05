@@ -111,7 +111,7 @@ Archivo: [estructuras/avl.py](/estructuras/avl.py)
 
 ---
 
-## 3. TP5 — Árbol General (N-ario)     ---a partir de aca     
+## 3. TP5 — Árbol General (N-ario)    
 
 ### 3.1 ¿Qué es un árbol general?
 A diferencia del árbol binario donde cada nodo tiene máximo 2 hijos, un **árbol general** permite que cada
