@@ -1,4 +1,5 @@
 from estructuras.arbol_binario import ArbolBST
+from estructuras.avl import AVL
 from modelos.juego import Juego
 import csv
 import random
@@ -46,12 +47,10 @@ class Menu:
     def __init__(self):
         self.buscador = Buscador()
         self.juegos = cargar_datos()
-        random.seed(42)
-        juegos_mezclados = self.juegos.copy()
-        random.shuffle(juegos_mezclados)  #MEzclamos los juegos del cvs porque en orden alfabetico se conflictuaba
+        #borramos el shuffle porque con el avl se soluciona el problema del orden alfabetico
 
-        self.arbol = ArbolBST()
-        for elemento in juegos_mezclados:
+        self.arbol = AVL()
+        for elemento in self.juegos:
             self.arbol.insertar(elemento, clave=lambda e: e.titulo.lower())
 
         self.estado = 0
