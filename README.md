@@ -24,5 +24,5 @@ Comisión 3, grupo 12.
 - TP1: [Completo](./docs/00-propuesta.md)
 - TP2: x
 - TP3: [Completo](./docs/07-analisis-tp3.md)
-- TP4: [Completo](.docs/08-analisis-tp4-tp5.md)
-- TP5: [En curso](.docs/08-analisis-tp4-tp5.md)
+- TP4: [Completo](./docs/08-analisis-tp4-tp5.md)
+- TP5: [En curso](./docs/08-analisis-tp4-tp5.md)
