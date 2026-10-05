@@ -1,7 +1,7 @@
 # No se que jugar
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Estado](https://img.shields.io/badge/Estado-entrega%203-yellow?style=for-the-badge)
+![Estado](https://img.shields.io/badge/Progreso-TP%204-yellow?style=for-the-badge)
 ![UNAB](https://img.shields.io/badge/UNAB-Estructuras%20de%20Datos%202026-blue?style=for-the-badge)
 
 Sistema de recomendacion de videojuegos, con una base de 16.668 juegos.
