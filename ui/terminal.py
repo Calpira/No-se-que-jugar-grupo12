@@ -1,5 +1,6 @@
 from estructuras.arbol_binario import ArbolBST
 from estructuras.avl import AVL
+from estructuras.arbol_general import ArbolGeneral
 from modelos.juego import Juego
 import csv
 import random
@@ -53,6 +54,28 @@ class Menu:
         for elemento in self.juegos:
             self.arbol.insertar(elemento, clave=lambda e: e.titulo.lower())
 
+        self.categorias = ArbolGeneral()
+        self.categorias.insertar_raiz("Videojuegos")
+
+        accion = self.categorias.agregar_hijo(self.categorias.raiz, "Action")
+        aventura = self.categorias.agregar_hijo(self.categorias.raiz, "Adventure")
+        rpg = self.categorias.agregar_hijo(self.categorias.raiz, "RPG")
+        estrategia = self.categorias.agregar_hijo(self.categorias.raiz, "Strategy")
+
+        self.categorias.agregar_hijo(accion, "FPS")
+        self.categorias.agregar_hijo(accion, "Shooter")
+        self.categorias.agregar_hijo(accion, "Platformer")
+
+        self.categorias.agregar_hijo(aventura, "Puzzle")
+        self.categorias.agregar_hijo(aventura, "Horror")
+        self.categorias.agregar_hijo(aventura, "Point & Click")
+
+        self.categorias.agregar_hijo(rpg, "JRPG")
+        self.categorias.agregar_hijo(rpg, "Open World")
+
+        self.categorias.agregar_hijo(estrategia, "RTS")
+        self.categorias.agregar_hijo(estrategia, "Turn-Based Strategy")
+
         self.estado = 0
 
         self.opciones_principal = {
@@ -60,7 +83,8 @@ class Menu:
             2: "Busqueda por titulo",
             3: "Quiénes somos",
             4: "Cómo evaluamos los puntajes?",
-            5: "Salir del Programa"
+            5: "Explorar categorías",
+            6: "Salir del Programa"
         }
 
     def mostrar_principal(self):
@@ -84,11 +108,16 @@ class Menu:
             else:
                 print(f"No se encontró '{titulo}'.")
 
+    def explorar_categorias(self):
+        print("\n=== Categorías ===")
+        for genero in self.categorias.raiz.hijos:
+            print(f"{genero.dato}: {', '.join(self.categorias.listar_hijos(genero))}")    #pendiente ampliar, igualmente es funcional
+
 
 def main():
     menu = Menu()
 
-    while menu.estado != 5:
+    while menu.estado != 6:
         if menu.estado == 0:
             menu.mostrar_principal()
             try:
@@ -132,6 +161,13 @@ def main():
 
     Cada juego tiene un puntaje en base al grado de similitud
     con las categorías / juegos que el usuario elige.''')
+            input("(Presioná Enter para volver)")
+            menu.estado = 0
+
+#todavia no cumple una funcion real, solo decorativo (pero funciona)
+
+        elif menu.estado == 5:
+            menu.explorar_categorias()
             input("(Presioná Enter para volver)")
             menu.estado = 0
 

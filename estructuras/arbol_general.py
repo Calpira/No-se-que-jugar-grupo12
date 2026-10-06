@@ -31,8 +31,8 @@ class ArbolGeneral:
 
     Se usa para representar jerarquías naturales del dominio, como:
     Películas → Ciencia Ficción → Cyberpunk, Viajes Temporales, IA
-             → Acción
-             → Comedia
+            → Acción
+            → Comedia
     """
 
     def __init__(self):
@@ -192,23 +192,28 @@ class ArbolGeneral:
 # ==================== EJEMPLO DE USO ====================
 
 if __name__ == "__main__":
-    # Crear un árbol de categorías de películas
+    # arbol de categorias de videojuegos
     arbol = ArbolGeneral()
-    arbol.insertar_raiz("Películas")
+    arbol.insertar_raiz("Videojuegos")
 
-    ciencia = arbol.agregar_hijo(arbol.raiz, "Ciencia Ficción")
-    accion = arbol.agregar_hijo(arbol.raiz, "Acción")
-    comedia = arbol.agregar_hijo(arbol.raiz, "Comedia")
+    accion = arbol.agregar_hijo(arbol.raiz, "Action")
+    aventura = arbol.agregar_hijo(arbol.raiz, "Adventure")
+    rpg = arbol.agregar_hijo(arbol.raiz, "RPG")
+    estrategia = arbol.agregar_hijo(arbol.raiz, "Strategy")
 
-    arbol.agregar_hijo(ciencia, "Cyberpunk")
-    arbol.agregar_hijo(ciencia, "Viajes temporales")
-    arbol.agregar_hijo(ciencia, "Inteligencia artificial")
+    arbol.agregar_hijo(accion, "FPS")
+    arbol.agregar_hijo(accion, "Shooter")
+    arbol.agregar_hijo(accion, "Platformer")
 
-    arbol.agregar_hijo(accion, "Superhéroes")
-    arbol.agregar_hijo(accion, "Guerra")
+    arbol.agregar_hijo(aventura, "Puzzle")
+    arbol.agregar_hijo(aventura, "Horror")
+    arbol.agregar_hijo(aventura, "Point & Click")
 
-    arbol.agregar_hijo(comedia, "Comedia romántica")
-    arbol.agregar_hijo(comedia, "Comedia negra")
+    arbol.agregar_hijo(rpg, "JRPG")
+    arbol.agregar_hijo(rpg, "Open World")
+
+    arbol.agregar_hijo(estrategia, "RTS")
+    arbol.agregar_hijo(estrategia, "Turn-Based Strategy")
 
     print("=== Árbol General de Categorías ===")
     print("Raíz:", arbol.raiz.dato)
@@ -233,12 +238,12 @@ if __name__ == "__main__":
         print(f"  Nivel {i}: {nivel}")
     print()
 
-    print("--- Hijos de 'Ciencia Ficción' ---")
-    nodo_ciencia = arbol.buscar("Ciencia Ficción")
-    if nodo_ciencia:
-        print(arbol.listar_hijos(nodo_ciencia))
+    print("--- Hijos de 'Action' ---")
+    nodo_accion = arbol.buscar("Action")
+    if nodo_accion:
+        print(arbol.listar_hijos(nodo_accion))
 
     print()
-    print("--- Buscar 'Cyberpunk' ---")
-    resultado = arbol.buscar("Cyberpunk")
+    print("--- Buscar 'FPS' ---")
+    resultado = arbol.buscar("FPS")
     print("Encontrado:", resultado)
