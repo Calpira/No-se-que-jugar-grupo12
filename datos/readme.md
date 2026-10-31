@@ -35,9 +35,8 @@ Se estructuró la lectura de columnas aplicando el corrimiento correcto:
 - Se implementó una función de recorte estricta (`recortar_lista`) para limitar cada campo a un máximo de elementos (por ejemplo, 5).
 - **Rating bayesiano:** para evitar que juegos con apenas 2 o 3 votos tuvieran un puntaje perfecto y falso de 100%, se implementó una fórmula de ponderación bayesiana que jala los extremos hacia una nota promedio global (configurada en 30) utilizando un umbral de votos mínimos:
 
-$$
-\text{Rating Ponderado} = \frac{(\text{votos\_totales} \times \text{rating\_crudo}) + (\text{umbral\_minal} \times \text{nota\_promedio\_global})}{\text{votos\_totales} + \text{umbral\_minal}}
-$$
+Rating Ponderado = ((votos_totales * rating_crudo) + (umbral_minimal * nota_promedio_global))
+                   / (votos_totales + umbral_minimal)
 
 Valores por defecto en el código: `umbral_minal=3000` y `nota_promedio_global=30`.
 
