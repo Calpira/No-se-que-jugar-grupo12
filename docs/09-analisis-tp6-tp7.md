@@ -3,7 +3,7 @@
 ## 1. Introducción
 Para esta etapa, se solicitó la incorporación de las estructuras de datos **Heap** y **Grafo**.
 
-Siguiendo la consigna, la integración funcional del Grafo no era excluyente. Por lo tanto, implementamos e integramos el [Heap](estructuras/heap.py) al programa principal, y desarrollamos el [Grafo](estructuras/grafo.py) de forma aislada, el cual fue [probado](algoritmos/probar_heap_grafo.py) con datos reales para garantizar su funcionamiento.
+Siguiendo la consigna, la integración funcional del Grafo no era excluyente. Por lo tanto, implementamos e integramos el [Heap](../estructuras/heap.py) al programa principal, y desarrollamos el [Grafo](../estructuras/grafo.py) de forma aislada, el cual fue [probado](../algoritmos/probar_heap_grafo.py) con datos reales para garantizar su funcionamiento.
 
 ## 2. Implementación del Heap
 Se implementó una clase `Heap` que funciona como Max-Heap por defecto. Se utilizó para rankear juegos según un "score de similitud" con las preferencias del usuario (ej: Action, FPS, Shooter), devolviendo el Top 10 de recomendaciones.
