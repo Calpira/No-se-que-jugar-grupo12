@@ -36,7 +36,7 @@ Durante las pruebas de validación nos enfrentamos a un límite de rendimiento.
 
 ## 6. Evidencia de Funcionamiento 
 
-![evidencia heap y grafo](assets/heap-grafo-prueba.jpg)
+![Evidencia Heap y Grafo](../assets/heap-grafo-prueba.jpg)
 
 En la captura se puede observar el funcionamiento de ambas estructuras integradas en el script de prueba:
 
@@ -44,7 +44,7 @@ En la captura se puede observar el funcionamiento de ambas estructuras integrada
 
 **Grafo (Parte inferior):** Se observa el problema del rendimiento mencionado en la sección 5 (se generaron más de 10 millones de aristas al procesar 8000 nodos). A pesar de ello, el algoritmo de Dijkstra encuentra el camino mínimo directo entre "Hades" y "Dead Cells". Además, el Top 5 de similitudes devuelve juegos coherentes como "Hades II" y "Dreamscaper", validando la efectividad del índice de Jaccard.
 
-![Muestra de heap implementado](assets/implementacion-1.jpg)
+![Muestra de Heap Implementado](../assets/implementacion-1.jpg)
 
 **Observación sobre la búsqueda por coincidencia parcial:**
 
