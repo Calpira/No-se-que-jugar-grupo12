@@ -1,3 +1,4 @@
+from estructuras.heap import Heap
 from estructuras.arbol_binario import ArbolBST
 from estructuras.avl import AVL
 from estructuras.arbol_general import ArbolGeneral
@@ -95,10 +96,32 @@ class Menu:
 
     def ejecutar_busqueda(self):
         categorias_input = input("Ingresá tags separados por coma: ")
-        categorias = categorias_input.split(",")
-        for i in range(len(categorias)):
-            categorias[i] = categorias[i].strip()
-        self.buscador.realizar_busqueda(categorias, self.juegos)
+        # Limpiamos los tags y pasamos todo a min
+        categorias = [c.strip().lower() for c in categorias_input.split(",") if c.strip()]
+        
+        #saca los puntajes más altos primero
+        heap = Heap(clave=lambda j: self._calcular_puntaje(j, categorias), maximo=True)
+        
+        #buscamos coincidencias y las insertamos en el heap
+        for juego in self.juegos:
+            if any(cat in tag.lower() for cat in categorias for tag in juego.tags):
+                heap.insertar(juego)
+                
+        #mostramos top 10
+        if heap.esta_vacio():
+            print("No se encontraron juegos con esas etiquetas.")
+        else:
+            print(f"\n--- Top 10 recomendados para {categorias} ---")
+            for i in range(10):
+                if heap.esta_vacio():
+                    break
+                juego = heap.extraer()
+                print(f"{i+1}. {juego}")
+
+    def _calcular_puntaje(self, juego, categorias):
+        # Le damos 10 puntos por cada tag que coincida, más el rating original del juego
+        coincidencias = sum(1 for cat in categorias for tag in juego.tags if cat in tag.lower())
+        return juego.rating + (coincidencias * 10)
 
     def ejecutar_busqueda_arbol(self):
             titulo = input("inserte titulo para buscar: ").strip()
