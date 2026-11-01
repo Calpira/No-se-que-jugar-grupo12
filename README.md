@@ -26,4 +26,4 @@ Comisión 3, grupo 12.
 - TP3: [Completo](./docs/07-analisis-tp3.md)
 - TP4: [Completo](./docs/08-analisis-tp4-tp5.md)
 - TP5: [Completo](./docs/08-analisis-tp4-tp5.md#3-tp5--%C3%A1rbol-general-n-ario)
-- TP6/TP7: [completo](.docs/09-analisis-tp6-tp7.md)
+- TP6/TP7: [completo](./docs/09-analisis-tp6-tp7.md)
