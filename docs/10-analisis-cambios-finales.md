@@ -5,9 +5,9 @@
 En la propuesta original se definió el objetivo de resolver la indecisión de un usuario que busca qué jugar sin perder tiempo, planteando funcionalidades clave que fueron cubiertas en su totalidad a lo largo del desarrollo:
 
 - **Búsqueda por palabras clave/tags + Sistema de valoración/ranking:** Resuelto en la **Opción 1** mediante un **Max-Heap**, que calcula el puntaje de coincidencia (`Rating + 10 puntos por cada tag coincidente`) y extrae el Top 10 ordenado.
-- **Juegos relacionados (*"si te gustó este, probá este otro"*):** Resuelto en la **Opción 2** combinando un **Árbol AVL** (para localizar el título exacto en $O(\log n)$) y un **Grafo no dirigido** recorrido con **BFS** bajo demanda para recomendar títulos similares.
+- **Juegos relacionados (*"si te gustó este, probá este otro"*):** Resuelto en la **Opción 2** combinando un **Árbol AVL** (para localizar el título exacto en (O(\log n)) y un **Grafo no dirigido** recorrido con **BFS** bajo demanda para recomendar títulos similares.
 - **Exploración por categorías:** Resuelto en la **Opción 4** mediante un **Árbol General** que organiza géneros y subgéneros de videojuegos.
-- **Recomendación aleatoria (*"¡Sorpréndeme!"*):** Resuelto en la **Opción 3** mediante selección uniforme en tiempo constante $O(1)$ con `random.choice()`.
+- **Recomendación aleatoria (*"¡Sorpréndeme!"*):** Resuelto en la **Opción 3** mediante selección uniforme en tiempo constante O(1) con `random.choice()`.
 
 ---
 
