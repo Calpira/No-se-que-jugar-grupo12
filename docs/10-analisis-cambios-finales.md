@@ -1,6 +1,6 @@
 # Entrega Final — Sumario del Proyecto e Integración Completa
 
-## 1. Cumplimiento de la Propuesta Inicial (`00-propuesta.md`)
+## 1. Cumplimiento de la Propuesta Inicial ([00-propuesta.md](./docs/00-propuesta.md)
 
 En la propuesta original se definió el objetivo de resolver la indecisión de un usuario que busca qué jugar sin perder tiempo, planteando funcionalidades clave que fueron cubiertas en su totalidad a lo largo del desarrollo:
 
@@ -28,8 +28,8 @@ En la propuesta original se definió el objetivo de resolver la indecisión de u
 Para cerrar el flujo completo de la aplicación, se reorganizaron las opciones del menú principal y se completaron las integraciones pendientes:
 
 ### 3.1 Árbol AVL + Grafo en la Opción 2 (Búsqueda por título)
-Antes esta opción solo usaba el **Árbol AVL** para buscar el título exacto rápido ($O(\log n)$). Ahora le sumamos el **Grafo** para recomendar juegos similares:
-- **Árbol AVL ($O(\log n)$):** Funciona como un índice alfabético balanceado que ubica rápidamente el título buscado por el usuario sin recorrer todo el catálogo.
+Antes esta opción solo usaba el **Árbol AVL** para buscar el título exacto rápido (O(\log n)). Ahora le sumamos el **Grafo** para recomendar juegos similares:
+- **Árbol AVL (O(\log n)):** Funciona como un índice alfabético balanceado que ubica rápidamente el título buscado por el usuario sin recorrer todo el catálogo.
 - **Grafo con BFS:** Una vez encontrado el juego base, si el usuario elige ver recomendaciones similares, se arma una red local conectando ese título con otros que comparten etiquetas y se recorren sus vecinos mediante **BFS** para mostrar los más parecidos.
 
 
