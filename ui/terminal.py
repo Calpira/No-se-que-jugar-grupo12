@@ -3,6 +3,7 @@ from estructuras.arbol_binario import ArbolBST
 from estructuras.avl import AVL
 from estructuras.arbol_general import ArbolGeneral
 from modelos.juego import Juego
+from estructuras.grafo import Grafo
 import csv
 import random
 
@@ -82,9 +83,9 @@ class Menu:
         self.opciones_principal = {
             1: "Búsqueda por etiquetas",
             2: "Busqueda por titulo",
-            3: "Quiénes somos",
-            4: "Cómo evaluamos los puntajes?",
-            5: "Explorar categorías",
+            3: "Sorprendeme!",
+            4: "Explorar categorías",
+            5: "Quiénes somos",
             6: "Salir del Programa"
         }
 
@@ -124,18 +125,45 @@ class Menu:
         return juego.rating + (coincidencias * 10)
 
     def ejecutar_busqueda_arbol(self):
-            titulo = input("inserte titulo para buscar: ").strip()
-            resultado = self.arbol.buscar(titulo.lower(), clave=lambda e: e.titulo.lower())
-            if resultado:
-                print(f"Encontrado: {resultado}")
-            else:
-                print(f"No se encontró '{titulo}'.")
+        titulo = input("Inserte título para buscar: ").strip()
+        resultado = self.arbol.buscar(titulo.lower(), clave=lambda e: e.titulo.lower())
+        if resultado:
+            print(f"Encontrado: {resultado}")
+            ver_sim = input("¿Ver juegos similares? (s/n): ").strip().lower()
+            if ver_sim == "s":
+                grafo = Grafo()
+                tags_base = set(resultado.tags)
+                for juego in self.juegos:
+                    if juego.titulo != resultado.titulo:
+                        comunes = len(tags_base & set(juego.tags))
+                        if comunes > 0:
+                            grafo.agregar_arista(resultado.titulo, juego.titulo, peso=1 / comunes)
+
+                similares = grafo.bfs(resultado.titulo)[1:6]
+                if similares:
+                    print(f"\n--- Juegos similares a '{resultado.titulo}' (BFS) ---")
+                    for s in similares:
+                        print(f"- {s}")
+                else:
+                    print("No se encontraron juegos similares.")
+        else:
+            print(f"No se encontró '{titulo}'.")
+
 
     def explorar_categorias(self):
         print("\n=== Categorías ===")
         for genero in self.categorias.raiz.hijos:
-            print(f"{genero.dato}: {', '.join(self.categorias.listar_hijos(genero))}")    #pendiente ampliar, igualmente es funcional
+            print(f"{genero.dato}: {', '.join(self.categorias.listar_hijos(genero))}") 
 
+    def ejecutar_juego_aleatorio(self):
+        if not self.juegos:
+            print("No hay juegos cargados.")
+            return
+        juego_random = random.choice(self.juegos)
+        print("\n=== Sorprendeme! ===")
+        print("Hoy te recomendamos jugar a:")
+        print(f"{juego_random.titulo} (Rating: {juego_random.rating})")
+        print(f"Tags: {', '.join(juego_random.tags)}")
 
 def main():
     menu = Menu()
@@ -162,7 +190,21 @@ def main():
             input("(Presioná Enter para volver)")
             menu.estado = 0
 
+
+
         elif menu.estado == 3:
+            menu.ejecutar_juego_aleatorio()
+            input("(Presioná Enter para volver)")
+            menu.estado = 0
+
+
+        elif menu.estado == 4:
+            menu.explorar_categorias()
+            input("(Presioná Enter para volver)")
+            menu.estado = 0
+
+            
+        elif menu.estado == 5:
             print('''
     === Quiénes somos ===
 
@@ -175,25 +217,6 @@ def main():
     Estructuras de Datos''')
             input("(Presioná Enter para volver)")
             menu.estado = 0
-
-        elif menu.estado == 4:
-            print('''
-    === Metodología de Evaluación ===
-                            (a desarrollar)
-    Tenemos una base de datos con mas de 1000 juegos. 
-
-    Cada juego tiene un puntaje en base al grado de similitud
-    con las categorías / juegos que el usuario elige.''')
-            input("(Presioná Enter para volver)")
-            menu.estado = 0
-
-#todavia no cumple una funcion real, solo decorativo (pero funciona)
-
-        elif menu.estado == 5:
-            menu.explorar_categorias()
-            input("(Presioná Enter para volver)")
-            menu.estado = 0
-
     print("Gracias por usar nuestro programa.")
 
 if __name__ == "__main__":
