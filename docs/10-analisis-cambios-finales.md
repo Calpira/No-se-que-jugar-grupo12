@@ -30,8 +30,7 @@ Para cerrar el flujo completo de la aplicación, se reorganizaron las opciones d
 ### 3.1 Árbol AVL + Grafo en la Opción 2 (Búsqueda por título)
 Antes esta opción solo usaba el **Árbol AVL** para buscar el título exacto rápido (O(\log n)). Ahora le sumamos el **Grafo** para recomendar juegos similares:
 - **Árbol AVL (O(\log n)):** Funciona como un índice alfabético balanceado que ubica rápidamente el título buscado por el usuario sin recorrer todo el catálogo.
-- **Grafo con BFS:** Una vez encontrado el juego base, si el usuario elige ver recomendaciones similares, se arma una red local conectando ese título con otros que comparten etiquetas y se recorren sus vecinos mediante **BFS** para mostrar los más parecidos.
-
+- **Grafo con BFS:** Una vez encontrado el juego base, si el usuario elige ver recomendaciones similares, se filtran los juegos que comparten etiquetas y se ordenan de mayor a menor similitud (cantidad de tags en común y rating) para armar el subgrafo con los 15 mejores candidatos. Luego se recorren sus vecinos mediante **BFS** para mostrar los 5 más parecidos, evitando construir el grafo completo al inicio (O(V2)) y asegurando recomendaciones relevantes en lugar de los primeros títulos del CSV.
 
 ### 3.2 Nueva Opción 3: "¡Sorpréndeme!" (Juego aleatorio)
 Se incorporó esta opción para resolver el problema principal de la aplicación cuando el usuario no tiene ningún criterio o filtro definido y quiere delegar por completo la elección:
