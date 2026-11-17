@@ -1,6 +1,6 @@
 # Entrega Final — Sumario del Proyecto e Integración Completa
 
-## 1. Cumplimiento de la Propuesta Inicial ([00-propuesta.md](./docs/00-propuesta.md))
+## 1. Cumplimiento de la Propuesta Inicial ([00-propuesta.md](./00-propuesta.md))
 
 En la propuesta original se definió el objetivo de resolver la indecisión de un usuario que busca qué jugar sin perder tiempo, planteando funcionalidades clave que fueron cubiertas en su totalidad a lo largo del desarrollo:
 
