@@ -1,5 +1,4 @@
 from estructuras.heap import Heap
-from estructuras.arbol_binario import ArbolBST
 from estructuras.avl import AVL
 from estructuras.arbol_general import ArbolGeneral
 from modelos.juego import Juego
@@ -50,7 +49,7 @@ class Menu:
     def __init__(self):
         self.buscador = Buscador()
         self.juegos = cargar_datos()
-        #borramos el shuffle porque con el avl se soluciona el problema del orden alfabetico
+        # borramos el shuffle porque con el avl se soluciona el problema del orden alfabetico
 
         self.arbol = AVL()
         for elemento in self.juegos:
@@ -99,16 +98,16 @@ class Menu:
         categorias_input = input("Ingresá tags separados por coma: ")
         # Limpiamos los tags y pasamos todo a min
         categorias = [c.strip().lower() for c in categorias_input.split(",") if c.strip()]
-        
-        #saca los puntajes más altos primero
+
+        # saca los puntajes más altos primero
         heap = Heap(clave=lambda j: self._calcular_puntaje(j, categorias), maximo=True)
-        
-        #buscamos coincidencias y las insertamos en el heap
+
+        # buscamos coincidencias y las insertamos en el heap
         for juego in self.juegos:
             if any(cat in tag.lower() for cat in categorias for tag in juego.tags):
                 heap.insertar(juego)
-                
-        #mostramos top 10
+
+        # mostramos top 10
         if heap.esta_vacio():
             print("No se encontraron juegos con esas etiquetas.")
         else:
@@ -133,11 +132,17 @@ class Menu:
             if ver_sim == "s":
                 grafo = Grafo()
                 tags_base = set(resultado.tags)
+                candidatos = []
                 for juego in self.juegos:
                     if juego.titulo != resultado.titulo:
                         comunes = len(tags_base & set(juego.tags))
                         if comunes > 0:
-                            grafo.agregar_arista(resultado.titulo, juego.titulo, peso=1 / comunes)
+                            candidatos.append((comunes, juego.rating, juego))
+
+                candidatos.sort(key=lambda x: (x[0], x[1]), reverse=True)
+
+                for comunes, _, juego in candidatos[:15]:
+                    grafo.agregar_arista(resultado.titulo, juego.titulo, peso=1 / comunes)
 
                 similares = grafo.bfs(resultado.titulo)[1:6]
                 if similares:
@@ -149,11 +154,10 @@ class Menu:
         else:
             print(f"No se encontró '{titulo}'.")
 
-
     def explorar_categorias(self):
         print("\n=== Categorías ===")
         for genero in self.categorias.raiz.hijos:
-            print(f"{genero.dato}: {', '.join(self.categorias.listar_hijos(genero))}") 
+            print(f"{genero.dato}: {', '.join(self.categorias.listar_hijos(genero))}")
 
     def ejecutar_juego_aleatorio(self):
         if not self.juegos:
@@ -164,6 +168,7 @@ class Menu:
         print("Hoy te recomendamos jugar a:")
         print(f"{juego_random.titulo} (Rating: {juego_random.rating})")
         print(f"Tags: {', '.join(juego_random.tags)}")
+
 
 def main():
     menu = Menu()
@@ -190,20 +195,16 @@ def main():
             input("(Presioná Enter para volver)")
             menu.estado = 0
 
-
-
         elif menu.estado == 3:
             menu.ejecutar_juego_aleatorio()
             input("(Presioná Enter para volver)")
             menu.estado = 0
-
 
         elif menu.estado == 4:
             menu.explorar_categorias()
             input("(Presioná Enter para volver)")
             menu.estado = 0
 
-            
         elif menu.estado == 5:
             print('''
     === Quiénes somos ===
@@ -218,6 +219,7 @@ def main():
             input("(Presioná Enter para volver)")
             menu.estado = 0
     print("Gracias por usar nuestro programa.")
+
 
 if __name__ == "__main__":
     main()
