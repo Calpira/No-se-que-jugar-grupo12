@@ -24,16 +24,18 @@
 6. **Salir del Programa:** Finaliza la ejecución de la aplicación.
 
 
-## Estado
+## Documentación Técnica
 
-- TP0: Completo
-- TP1: [Completo](./docs/00-propuesta.md)
-- TP2: x
-- TP3: [Completo](./docs/07-analisis-tp3.md)
-- TP4: [Completo](./docs/08-analisis-tp4-tp5.md)
-- TP5: [Completo](./docs/08-analisis-tp4-tp5.md#3-tp5--%C3%A1rbol-general-n-ario)
-- TP6/TP7: [completo](./docs/09-analisis-tp6-tp7.md)
-- Entrega final: [completo](./docs/10-analisis-cambios-finales.md)
+* [00 - Propuesta Inicial](docs/00-propuesta.md)
+* [01 - Requerimientos](docs/01-requerimientos.md)
+* [02 - Casos de Uso](docs/02-casos-de-uso.md)
+* [03 - Diagrama de Clases](docs/03-diagrama-clases.md)
+* [04 - Diagrama de Conexión entre Estructuras](docs/04-diagrama-datos.md)
+* [05 - Gestión del Proyecto](docs/05-gestion-proyecto.md)
+* [07 - Análisis TP3](docs/07-analisis-tp3.md)
+* [08 - Análisis TP4 y TP5](docs/08-analisis-tp4-tp5.md)
+* [09 - Análisis TP6 y TP7](docs/09-analisis-tp6-tp7.md)
+* [10 - Análisis Cambios Finales](docs/10-analisis-cambios-finales.md)
 
 
 ## Integrantes
