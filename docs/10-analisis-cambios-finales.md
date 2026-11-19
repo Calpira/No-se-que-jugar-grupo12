@@ -35,3 +35,9 @@ Antes esta opción solo usaba el **Árbol AVL** para buscar el título exacto r�
 ### 3.2 Nueva Opción 3: "¡Sorpréndeme!" (Juego aleatorio)
 Se incorporó esta opción para resolver el problema principal de la aplicación cuando el usuario no tiene ningún criterio o filtro definido y quiere delegar por completo la elección:
 - Utiliza `random.choice(self.juegos)`, que selecciona un título al azar de la lista cargada en tiempo constante **$O(1)$**, sin agregar sobrecarga al inicio ni durante la ejecución del programa.
+
+### 3.3 Nueva Opción 6: "Traducir etiqueta" (Traductor Integrado)
+Se añadió la funcionalidad de traducción de etiquetas para que el usuario pueda escribir en español y obtener la categoría en inglés:
+- El método `Traductor.traducir(etiqueta)` consulta un diccionario interno (`PALABRAS`) que mapea más de 80 etiquetas en español a su categoría en inglés correspondiente.
+- **Sin pérdida de rendimiento:** la traducción es una operación de búsqueda en un diccionario en tiempo constante **$O(1)$** por cada etiqueta, mientras que la búsqueda real sobre los 16.679 juegos es la operación costosa. Primero se traducen las etiquetas (rápido), luego se filtran los juegos (costoso).
+- Ejemplo: `accion` → `Action`, `cooperativo` → `Co-op`, `tiros` → `Shooter`.

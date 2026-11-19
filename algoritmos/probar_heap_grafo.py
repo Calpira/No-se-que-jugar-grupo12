@@ -57,7 +57,7 @@ def _normalizar_lista(valor):
     return [texto.strip()] if texto.strip() else []
 
 
-def cargar_juegos(ruta="datos/juegos.csv"):
+def cargar_juegos(ruta="datos/Juegos.csv"):
     #Lee el CSV combinando generos + tags
     if not os.path.isfile(ruta):
         return None
@@ -201,10 +201,10 @@ def main():
 
     juegos = cargar_juegos()
     if juegos is None:
-        print("No se pudo leer datos/juegos.csv — usando juegos de respaldo.")
+        print("No se pudo leer datos/Juegos.csv — usando juegos de respaldo.")
         juegos = JUEGOS_DE_RESPALDO
     else:
-        print(f"Dataset cargado: {len(juegos)} juegos desde datos/juegos.csv")
+        print(f"Dataset cargado: {len(juegos)} juegos desde datos/Juegos.csv")
 
     demo_heap(juegos, PREFERENCIAS)
     demo_grafo(juegos, ancla, destino)
