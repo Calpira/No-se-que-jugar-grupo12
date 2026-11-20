@@ -6,7 +6,7 @@
 
 ¿Tenés miles de opciones disponibles pero terminás pasando más tiempo buscando qué jugar que jugando? 
 
-**No sé qué jugar** es un sistema de recomendación por consola desarrollado en Python que ayuda a decidir qué título elegir a continuación sobre un catálogo real de **16.668 videojuegos**, aplicando distintas estructuras de datos para optimizar cada tipo de búsqueda.
+**No sé qué jugar** es un sistema de recomendación por consola desarrollado en Python que ayuda a decidir qué título elegir a continuación sobre un catálogo real de **16.678 videojuegos**, aplicando distintas estructuras de datos para optimizar cada tipo de búsqueda.
 
 
 ## Cómo ejecutar
@@ -41,5 +41,4 @@
 ## Integrantes
 Comisión 3, grupo 12.
 - Luciano "Reddaz" Rezoagli
-- Ezequiel Armoa
 - Carolina "Calpira" Lopez
