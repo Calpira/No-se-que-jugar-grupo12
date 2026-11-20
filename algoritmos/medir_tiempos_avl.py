@@ -1,8 +1,9 @@
 import timeit
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ui.terminal import cargar_datos
 from estructuras.arbol_binario import ArbolBST
 from estructuras.avl import AVL
-
 
 def ordenar_por_titulo(lista):
     return sorted(lista, key=lambda e: e.titulo.lower())
@@ -20,7 +21,7 @@ def armar_arboles(lista):
 def main() -> None:
     juegos_totales = cargar_datos()
     ordenados = ordenar_por_titulo(juegos_totales)
-    tamaños = (100 / 500 / 900)
+    tamaños = (100, 500, 900)
 
     print("tamaño\taltura_bst\taltura_avl\tbst_ms\tavl_ms")
     for n in tamaños:
