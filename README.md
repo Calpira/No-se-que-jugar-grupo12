@@ -36,7 +36,7 @@
 * [08 - Análisis TP4 y TP5](docs/08-analisis-tp4-tp5.md)
 * [09 - Análisis TP6 y TP7](docs/09-analisis-tp6-tp7.md)
 * [10 - Análisis Cambios Finales](docs/10-analisis-cambios-finales.md)
-
+* [Procesamiento y limpieza del dataset](datos/readme.md)
 
 ## Integrantes
 Comisión 3, grupo 12.
