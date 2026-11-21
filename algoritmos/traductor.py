@@ -78,7 +78,7 @@ PALABRAS = {
     "inclusivo": "LGBTQ+",
     "buena musica": "Great Soundtrack",
     "musica piola": "Great Soundtrack",
-    "musica": "Rhythm",
+    "musica": "Soundtrack",
     "espacio": "Space",
     "humor negro": "Dark Humor",
     "amor": "Romance",

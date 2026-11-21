@@ -140,30 +140,14 @@ class Menu:
                 print(f"{i+1}. {juego}")
 
     def _calcular_coincidencias(self, juego, categorias):
-        # 10 puntos por cada categoría que coincida, o 5 si tiene un tag compartido con otra categoría
-        # ejemplo: si el usuario pide "FPS" y "Shooter", y el juego tiene un tag "FPS Shooter", se cuenta como 5 puntos para cada categoría, no 10.
-        total = 0.0
-        for cat in categorias:
-            mejor = 0.0
-            for tag in juego.tags:
-                if cat.lower() not in tag.lower():
-                    continue
-
-                # este tag sirve también para otra categoría pedida?
-                compartido = any(otra.lower() != cat.lower() and otra.lower() in tag.lower() for otra in categorias)
-
-                valor = 0.5 if compartido else 1.0
-                mejor = max(mejor, valor)  # cada categoría se cuenta UNA vez
-
-            total += mejor
-        return total
+        # Podriamos mandar esto al Heap para optimizar la aplicación acá
+        return sum(1.0 for cat in categorias if any(cat.lower() in tag.lower() for tag in juego.tags))
 
     def _calcular_puntaje(self, juego, categorias):
         coincidencias = self._calcular_coincidencias(juego, categorias)
-        # penalizamos la falta de coincidencias: si el juego no tiene tags que coincidan con las categorías pedidas
-        # se le divide el rating base por 1.2 + cantidad de categorías sin coincidencias
+        # penalizamos la falta de coincidencias: si el juego no tiene tags que coincidan con el 100% las categorías pedidas
         no_coincidencias = sum(1 for cat in categorias if not any(cat.lower() in tag.lower() for tag in juego.tags))
-        return juego.rating / (1.2 + no_coincidencias) + coincidencias * 10 # premiar mas las coincidencias que el rating base
+        return juego.rating / (1.2 + no_coincidencias) + coincidencias * 10 
 
     def ejecutar_busqueda_arbol(self):
         titulo = input("Inserte título para buscar: ").strip()
