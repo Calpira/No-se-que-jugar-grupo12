@@ -147,6 +147,7 @@ class Menu:
         coincidencias = self._calcular_coincidencias(juego, categorias)
         # penalizamos la falta de coincidencias: si el juego no tiene tags que coincidan con el 100% las categorías pedidas
         no_coincidencias = sum(1 for cat in categorias if not any(cat.lower() in tag.lower() for tag in juego.tags))
+        # print(juego, juego.rating / (1.2 + no_coincidencias) + coincidencias * 10 )
         return juego.rating / (1.2 + no_coincidencias) + coincidencias * 10 
 
     def ejecutar_busqueda_arbol(self):

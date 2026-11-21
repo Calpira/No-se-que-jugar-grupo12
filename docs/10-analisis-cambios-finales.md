@@ -36,8 +36,24 @@ Antes esta opción solo usaba el **Árbol AVL** para buscar el título exacto r�
 Se incorporó esta opción para resolver el problema principal de la aplicación cuando el usuario no tiene ningún criterio o filtro definido y quiere delegar por completo la elección:
 - Utiliza `random.choice(self.juegos)`, que selecciona un título al azar de la lista cargada en tiempo constante **$O(1)$**, sin agregar sobrecarga al inicio ni durante la ejecución del programa.
 
-### 3.3 Nueva Opción 6: "Traducir etiqueta" (Traductor Integrado)
+### 3.3 Traducción automática de etiquetas (dentro de la Opción 1)
 Se añadió la funcionalidad de traducción de etiquetas para que el usuario pueda escribir en español y obtener la categoría en inglés:
 - El método `Traductor.traducir(etiqueta)` consulta un diccionario interno (`PALABRAS`) que mapea más de 80 etiquetas en español a su categoría en inglés correspondiente.
 - **Sin pérdida de rendimiento:** la traducción es una operación de búsqueda en un diccionario en tiempo constante **$O(1)$** por cada etiqueta, mientras que la búsqueda real sobre los 16.679 juegos es la operación costosa. Primero se traducen las etiquetas (rápido), luego se filtran los juegos (costoso).
 - Ejemplo: `accion` → `Action`, `cooperativo` → `Co-op`, `tiros` → `Shooter`.
+- El costo total es $O(k)$ para $k$ etiquetas, despreciable frente al filtrado sobre los 16.678 juegos.
+- Ejemplos: `accion` → `Action`, `cooperativo` → `Co-op`, `tiros` → `Shooter`, `música` → `Soundtrack`.
+
+### 3.4 Sistema de puntaje de la Opción 1
+El ranking no es un simple promedio: combina **cobertura de categorías** y **penalización por lo que falta**.
+
+**a) Coincidencias (una sola vez por categoría):**
+```python
+return sum(
+    1.0 for cat in categorias
+    if any(cat.lower() in tag.lower() for tag in juego.tags)
+)```
+
+### 3.5 Ampliación del catálogo y arreglo de medir_tiempos_avl.py
+La prueba `algoritmos/medir_tiempos_avl.py` tenia `/` en donde correspondían comas. Se agregó el `path` para poder realizar la prueba desde **VS Code** sin errores de terminal.
+Se actualizó `datos/Juegos.csv`, que quedó en **16.678 títulos**, incorporando lanzamientos recientes (GTA VI, Minecraft, títulos de Riot, Alan Wake II, Overwatch II y la trilogía de Hoyoverse, entre otros). El registro mantiene las columnas `AppID, Name, Genres, Categories, Tags, Rating` y la carga sigue siendo tolerante a filas incompletas: los tags se unifican sin duplicados y un rating inválido se convierte en `0.0`.

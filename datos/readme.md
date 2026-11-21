@@ -13,6 +13,7 @@ El dataset original de Steam (`games.csv`) presentaba fallas estructurales crít
 - **Desplazamiento severo en cadena:** las cabeceras del CSV no coincidían con sus valores reales. Las columnas de géneros, categorías, etiquetas y estadísticas de votos estaban corridas una posición hacia la derecha, provocando un caos de datos cruzados.
 - **Contenido NSFW masivo camuflado:** el dataset estaba plagado de juegos porno de baja calidad (*shovelware*). Sin embargo, un filtrado ingenuo basado en palabras como `nudity` o `sexual content` eliminaba por error a grandes producciones mainstream legítimas como *Cyberpunk 2077*, *The Witcher 3* o *Grand Theft Auto V*.
 - **Ruido por valoraciones extremas:** existían miles de juegos muertos, gachas abandonados o títulos afectados por *review bombings* masivos con calificaciones muy bajas que ensuciaban los nodos de búsqueda.
+- **El segundo dataset**: El contenido en crudo con shovelware contiene `118885` entradas, ideal para mediciones.
 
 ---
 
